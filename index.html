@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasbih Digital </title>
+</head>
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-image: url(kabah.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            justify-content: center;
+            display: flex;
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .kotak {
+            max-width: 500px;
+            margin-top: 120px;
+            padding: 30px;
+            background: rgba(255, 248, 225, 0.3);
+            backdrop-filter: 12px blur;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .judul {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: larger;
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, #f9e0a0, #dbb87c);
+            background-clip: text;
+            color: transparent;
+            text-shadow: black;
+            gap: 10px;
+        }
+        .sub {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            margin-top: 3px;
+            background: linear-gradient(135deg, #f9e0a0, #dbb87c);
+            background-clip: text;
+            color: transparent;
+        }
+        .running-text-kotak {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50px;
+            margin: 20px 0 10px 0;
+            padding: 8px 0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .running-text {
+            display: inline-block;
+            padding-left: 100%;
+            animation: runningText 12s linear infinite;
+            font-size: 14px;
+            font-weight: bold;
+            color: #ffefc0;
+            letter-spacing: 1px;
+        }
+        
+        @keyframes runningText {
+             0% {
+                transform: translate(0, 0);
+            }
+             100% {
+                 transform: translate(-100%, 0);
+            }
+        }
+        .pilihan-dzikir {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+        }
+
+        .btn-dzikir {
+            background: #fef7e0;
+            border: 2px solid #dbb87c;
+            border-radius: 40px;
+            padding: 8px 16px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #8b6946;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-dzikir.active {
+            background: linear-gradient(135deg, #dbb87c, #c9a45e);
+            color: white;
+            border-color: #fff;
+            transform: scale(1.05);
+        }
+
+        .btn-dzikir:hover {
+            background: #dbb87c;
+            color: white;
+        }
+        .lingkaran {
+            background: #fef7e0;
+            width: 170px;
+            height: 170px;
+            border-radius: 170px;
+            margin: auto;
+            margin-top: 50px;
+            margin-bottom: 30px;
+            border: 3px solid #dbb87c;
+        }
+        .angkaTasbih {
+            font-size: 100px;
+            font-weight: 700;
+            font-family: monospace;
+            color: #dbb87c; 
+            text-shadow: 2px 2px 0  #e9d6aa;
+        }
+        .target {
+            font-size: 17px;
+            font-weight: 500;
+        }
+        .bacaan {
+            margin: auto;
+            background-color: #fef7e0;
+            border-radius: 120px;
+            width: 200px;
+            height: 90px;
+            border: 3px solid #dbb87c;
+            margin-bottom: 20px;
+        }
+        .dzikir-indo {
+            text-align: center;
+            font-size: 20px;
+            font-weight: 700;
+            color:  #dbb87c;
+            display: inline-block;
+            width: auto;
+            margin: 0 auto 8px;
+            padding: 4px 20px;
+            border-radius: 50px;
+        }
+        .dzikir-arab {
+            font-size: 20px;
+            font-weight: bold;
+            width: auto;
+        }
+
+        .tombol {
+            margin: auto;
+            margin-bottom: 20px;
+        }
+        .tombol-kurang {
+            font-size: 25px;
+            font-weight: bold;
+            color: #dbb87c;
+            background-color: #fef7e0;
+            width: 50px;
+            height: 50px;
+            border-radius: 50px;
+            border: 3px solid;
+        }
+        .tombol-tambah {
+            font-size: 25px;
+            font-weight: bold;
+            background-color: #fef7e0;
+            color: #dbb87c;
+            width: 50px;
+            height: 50px;
+            border-radius: 50px;
+            border: 3px solid;
+        }
+        .tombol-reset {
+            font-size: 25px;
+            font-weight: bold;
+            background-color: #fef7e0;
+            color: #dbb87c;
+            width: 50px;
+            height: 50px;
+            border-radius: 50px;
+            border: 3px solid;
+        }
+        .set-target {
+            margin: auto;
+            margin-bottom: 20px
+        }
+        .setTarget-33 {
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #fef7e0;
+            color: #dbb87c;
+            width: 35px;
+            height: 40px;
+            border-radius: 10px;
+            border: 3px solid;
+        }
+        .setTarget-66 {
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #fef7e0;
+            color: #dbb87c;
+            width: 35px;
+            height: 40px;
+            border-radius: 10px;
+            border: 3px solid;
+        }
+        .setTarget-99 {
+               font-size: 18px;
+            font-weight: bold;
+            background-color: #fef7e0;
+            color: #dbb87c;
+            width: 35px;
+            height: 40px;
+            border-radius: 10px;
+            border: 3px solid;
+        }
+        .footer {
+            margin-top: 10px;
+            font-weight: bold;
+            font-style: italic;
+        }
+        
+    </style>
+    <div id="kotak" class="kotak">
+    <div id="judul" class="judul">
+        <h1>Ez Tasbih</h1>
+    </div>
+    <div id="sub" class="sub">Penghitung Tasbih Digital
+    </div>
+    <div id="runningTextKotak" class="running-text-kotak">
+    <div id="runningText" class="running-text">
+        📿 Subhanallah • Alhamdulillah • Allahu Akbar • 📿
+    </div>
+    </div>
+
+    <div id="pilihanDzikir" class="pilihan-dzikir">
+    <button id="btnSubhanallah" class="btn-dzikir active">سُبْحَانَ اللَّهِ</button>
+    <button id="btnAlhamdulillah" class="btn-dzikir">اَلْحَمْدُ لِلَّهِ</button>
+    <button id="btnAllahuAkbar" class="btn-dzikir">اَللَّهُ أَكْبَرُ</button>
+    </div>
+
+    <div id="lingkaran" class="lingkaran">
+        <div id="angka" class="angkaTasbih">0</div>
+        <div id="target" class="target">/ 33</div>
+    </div>
+
+    <div id="bacaan" class="bacaan">
+        <div id="dzikirIndo" class="dzikir-indo">SubhanAllah</div>
+        <div id="dzikirArab" class="dzikir-arab"> سُبْحَانَ اللَّهِ</div>
+    </div>
+
+    <div id="tombol" class="tombol">
+        <button id="tombolKurang" class="tombol-kurang">-</button>
+        <button id="tombolTambah" class="tombol-tambah">+</button>
+        <button id="tombolReset" class="tombol-reset" onclick="resetAngka()">⟳</button>
+    </div>
+
+    <div id="setTarget" class="set-target">
+        <button id="setTarget33" class="setTarget-33">33</button>
+        <button id="setTarget66" class="setTarget-66">66</button>
+        <button id="setTarget99" class="setTarget-99">99</button>
+    </div>
+
+    <div id="footer" class="footer">
+        "Jika yang kosong adalah akalnya, isilah dengan ilmu. Jika yang kosong adalah hatinya, isilah dengan dzikir." 
+    </div>
+</div>
+
+<audio src="alhamdelah.mp3" id="alhamdulilah">
+</audio>
+    <script>
+        let x = 0;
+        let currentTarget = 33;
+        
+        document.getElementById("angka").textContent = x;
+        document.getElementById("target").textContent = "/ 33";
+
+        function resetAngka() {
+            x = 0;
+            document.getElementById("angka").textContent = x;
+        }
+
+        const bacaanDzikir = {
+            subhanallah: {
+                arab: 'سُبْحَانَ اللَّهِ',
+                indo: 'SubhanAllah',
+                audio: 'alhamdelah.mp3'
+            },
+            alhamdulillah: {
+                arab: 'اَلْحَمْدُ لِلَّهِ',
+                indo: 'Alhamdulillah',
+                audio: 'alhamdelah.mp3'
+            },
+            allahuakbar: {
+                arab: 'اَللَّهُ أَكْبَرُ',
+                indo: 'Allahu Akbar',
+                audio: 'alhamdelah.mp3'
+            }
+        };
+        
+        let dzikirSaatIni = 'subhanallah';
+
+        function gantiDzikir(dzikir) {
+            dzikirSaatIni = dzikir;
+            
+            document.getElementById('dzikirArab').textContent = bacaanDzikir[dzikir].arab;
+            document.getElementById('dzikirIndo').textContent = bacaanDzikir[dzikir].indo;
+            
+            document.getElementById('btnSubhanallah').classList.remove('active');
+            document.getElementById('btnAlhamdulillah').classList.remove('active');
+            document.getElementById('btnAllahuAkbar').classList.remove('active');
+            
+            if (dzikir === 'subhanallah') {
+                document.getElementById('btnSubhanallah').classList.add('active');
+            } else if (dzikir === 'alhamdulillah') {
+                document.getElementById('btnAlhamdulillah').classList.add('active');
+            } else if (dzikir === 'allahuakbar') {
+                document.getElementById('btnAllahuAkbar').classList.add('active');
+            }
+            
+            const audio = document.getElementById('alhamdulilah');
+            audio.src = bacaanDzikir[dzikir].audio;
+        }
+
+        document.getElementById('btnSubhanallah').addEventListener('click', function() {
+            gantiDzikir('subhanallah');
+        });
+
+        document.getElementById('btnAlhamdulillah').addEventListener('click', function() {
+            gantiDzikir('alhamdulillah');
+        });
+
+        document.getElementById('btnAllahuAkbar').addEventListener('click', function() {
+            gantiDzikir('allahuakbar');
+        });
+
+        document.getElementById("tombolKurang").addEventListener(
+            'click', function () {
+                if (x > 0){
+                    x--;
+                    document.getElementById("angka").textContent = x;
+                }
+            }
+        )
+        
+        document.getElementById("setTarget33").addEventListener(
+            'click', function () {
+                currentTarget = 33;
+                document.getElementById("target").textContent = "/ 33";
+                x = 0;
+                document.getElementById("angka").textContent = x;
+            }
+        )
+        
+        document.getElementById("setTarget66").addEventListener(
+            'click', function () {
+                currentTarget = 66;
+                document.getElementById("target").textContent = "/ 66";
+                x = 0;
+                document.getElementById("angka").textContent = x;
+            }
+        )
+
+        document.getElementById("setTarget99").addEventListener(
+            'click', function () {
+                currentTarget = 99;
+                document.getElementById("target").textContent = "/ 99";
+                x = 0;
+                document.getElementById("angka").textContent = x;
+            }
+        )
+
+        document.getElementById("tombolTambah").addEventListener(
+            'click', function () {
+                x++;
+                document.getElementById("angka").textContent = x;
+
+                const suara = document.getElementById("alhamdulilah");
+                suara.currentTime = 0;
+                suara.play();
+            }
+        )
+    </script>   
+</body>
+</html>
