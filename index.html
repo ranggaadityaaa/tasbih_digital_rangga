@@ -105,7 +105,32 @@
         .btn-dzikir:hover {
             background: #dbb87c;
             color: white;
+
+        }.bacaan {
+            margin: auto;
+            background-color: #fef7e0;
+            border-radius: 50px;
+            width: 200px;
+            height: 90px;
+            border: 3px solid #dbb87c;
+            margin-bottom: -25px;
         }
+        .dzikir-indo {
+            text-align: center;
+            font-size: 20px;
+            font-weight: 700;
+            color:  #dbb87c;
+            display: inline-block;
+            width: auto;
+            margin: 0 auto 8px;
+            padding: 4px 20px;
+            border-radius: 50px;
+        }
+        .dzikir-arab {
+            font-size: 20px;
+            font-weight: bold;
+            width: auto;
+        }    
         .lingkaran {
             background: #fef7e0;
             width: 170px;
@@ -127,57 +152,16 @@
             font-size: 17px;
             font-weight: 500;
         }
-        .bacaan {
-            margin: auto;
-            background-color: #fef7e0;
-            border-radius: 120px;
-            width: 200px;
-            height: 90px;
-            border: 3px solid #dbb87c;
-            margin-bottom: 20px;
-        }
-        .dzikir-indo {
-            text-align: center;
-            font-size: 20px;
-            font-weight: 700;
-            color:  #dbb87c;
-            display: inline-block;
-            width: auto;
-            margin: 0 auto 8px;
-            padding: 4px 20px;
-            border-radius: 50px;
-        }
-        .dzikir-arab {
-            font-size: 20px;
-            font-weight: bold;
-            width: auto;
-        }
 
         .tombol {
-            margin: auto;
-            margin-bottom: 20px;
-        }
-        .tombol-kurang {
-            font-size: 25px;
-            font-weight: bold;
-            color: #dbb87c;
-            background-color: #fef7e0;
-            width: 50px;
-            height: 50px;
-            border-radius: 50px;
-            border: 3px solid;
-        }
-        .tombol-tambah {
-            font-size: 25px;
-            font-weight: bold;
-            background-color: #fef7e0;
-            color: #dbb87c;
-            width: 50px;
-            height: 50px;
-            border-radius: 50px;
-            border: 3px solid;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
         }
         .tombol-reset {
+            position: relative;
             font-size: 25px;
             font-weight: bold;
             background-color: #fef7e0;
@@ -186,40 +170,64 @@
             height: 50px;
             border-radius: 50px;
             border: 3px solid;
+            margin-bottom: -25px;
+        } 
+        .tombol-tambah {
+            font-size: 85px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-weight: bold;
+            background-color: #fef7e0;
+            color: #dbb87c;
+            width: 125px;
+            height: 125px;
+            border: 3px solid;
+            border-radius: 125px;
+            display: block;
+            cursor: pointer;
         }
+        .tombol-kurang {
+            position: relative;
+            font-size: 25px;
+            font-weight: bold;
+            color: #dbb87c;
+            background-color: #fef7e0;
+            width: 50px;
+            height: 50px;
+            border-radius: 50px;
+            border: 3px solid;
+            margin-top: -25px;
+            margin-bottom: 20px;
+        }
+        
         .set-target {
             margin: auto;
-            margin-bottom: 20px
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
         }
-        .setTarget-33 {
+        .setTarget-33, .setTarget-66, .setTarget-99 {
             font-size: 18px;
             font-weight: bold;
             background-color: #fef7e0;
             color: #dbb87c;
-            width: 35px;
+            width: 50px;
             height: 40px;
             border-radius: 10px;
             border: 3px solid;
+            cursor: pointer;
         }
-        .setTarget-66 {
-            font-size: 18px;
-            font-weight: bold;
+        .custom-target-input {
+            padding: 8px 12px;
+            border-radius: 50px;
+            border: 2px solid #dbb87c;
             background-color: #fef7e0;
-            color: #dbb87c;
-            width: 35px;
-            height: 40px;
-            border-radius: 10px;
-            border: 3px solid;
-        }
-        .setTarget-99 {
-               font-size: 18px;
+            color: #8b6946;
             font-weight: bold;
-            background-color: #fef7e0;
-            color: #dbb87c;
-            width: 35px;
-            height: 40px;
-            border-radius: 10px;
-            border: 3px solid;
+            text-align: center;
+            width: 100px;
         }
         .footer {
             margin-top: 10px;
@@ -246,26 +254,29 @@
     <button id="btnAllahuAkbar" class="btn-dzikir">اَللَّهُ أَكْبَرُ</button>
     </div>
 
-    <div id="lingkaran" class="lingkaran">
-        <div id="angka" class="angkaTasbih">0</div>
-        <div id="target" class="target">/ 33</div>
-    </div>
-
     <div id="bacaan" class="bacaan">
         <div id="dzikirIndo" class="dzikir-indo">SubhanAllah</div>
         <div id="dzikirArab" class="dzikir-arab"> سُبْحَانَ اللَّهِ</div>
     </div>
 
+    <div id="lingkaran" class="lingkaran">
+        <div id="angka" class="angkaTasbih">0</div>
+        <div id="target" class="target">/ 33</div>
+    </div>
+
+
     <div id="tombol" class="tombol">
+         <button id="tombolReset" class="tombol-reset" onclick="resetAngka()">⟳</button>
+        <button id="tombolTambah" class="tombol-tambah">^</button>
         <button id="tombolKurang" class="tombol-kurang">-</button>
-        <button id="tombolTambah" class="tombol-tambah">+</button>
-        <button id="tombolReset" class="tombol-reset" onclick="resetAngka()">⟳</button>
+       
     </div>
 
     <div id="setTarget" class="set-target">
         <button id="setTarget33" class="setTarget-33">33</button>
         <button id="setTarget66" class="setTarget-66">66</button>
         <button id="setTarget99" class="setTarget-99">99</button>
+        <input type="number" id="customTarget" class="custom-target-input" placeholder="Custom" min="1" value="">
     </div>
 
     <div id="footer" class="footer">
@@ -273,7 +284,9 @@
     </div>
 </div>
 
-<audio src="alhamdelah.mp3" id="alhamdulilah">
+<audio src="beep-small.mp3" id="suara-klik">
+<audio src="beep-long.mp3" id="suara-target">
+</audio>
 </audio>
     <script>
         let x = 0;
@@ -291,17 +304,17 @@
             subhanallah: {
                 arab: 'سُبْحَانَ اللَّهِ',
                 indo: 'SubhanAllah',
-                audio: 'alhamdelah.mp3'
+                audio: 'beep-small.mp3'
             },
             alhamdulillah: {
                 arab: 'اَلْحَمْدُ لِلَّهِ',
                 indo: 'Alhamdulillah',
-                audio: 'alhamdelah.mp3'
+                audio: 'beep-small.mp3'
             },
             allahuakbar: {
                 arab: 'اَللَّهُ أَكْبَرُ',
                 indo: 'Allahu Akbar',
-                audio: 'alhamdelah.mp3'
+                audio: 'beep-small.mp3'
             }
         };
         
@@ -325,7 +338,7 @@
                 document.getElementById('btnAllahuAkbar').classList.add('active');
             }
             
-            const audio = document.getElementById('alhamdulilah');
+            const audio = document.getElementById('suara-klik');
             audio.src = bacaanDzikir[dzikir].audio;
         }
 
@@ -356,6 +369,7 @@
                 document.getElementById("target").textContent = "/ 33";
                 x = 0;
                 document.getElementById("angka").textContent = x;
+                document.getElementById("customTarget").value = "";
             }
         )
         
@@ -365,6 +379,7 @@
                 document.getElementById("target").textContent = "/ 66";
                 x = 0;
                 document.getElementById("angka").textContent = x;
+                document.getElementById("customTarget").value = "";
             }
         )
 
@@ -374,17 +389,47 @@
                 document.getElementById("target").textContent = "/ 99";
                 x = 0;
                 document.getElementById("angka").textContent = x;
+                document.getElementById("customTarget").value = "";
             }
         )
+
+        document.getElementById("customTarget").addEventListener("input", function(event) {
+            let newTarget = parseInt(event.target.value);
+            
+            if (!isNaN(newTarget) && newTarget >= 1) {
+                currentTarget = newTarget;
+                document.getElementById("target").textContent = "/ " + currentTarget;
+                x = 0;
+                document.getElementById("angka").textContent = x;
+            } else if (event.target.value === "") {
+                
+            } else {
+                
+            }
+        });
 
         document.getElementById("tombolTambah").addEventListener(
             'click', function () {
                 x++;
                 document.getElementById("angka").textContent = x;
 
-                const suara = document.getElementById("alhamdulilah");
+                const suara = document.getElementById("suara-klik");
                 suara.currentTime = 0;
                 suara.play();
+
+                if (x === currentTarget) {
+                    setTimeout(() =>{
+                        const suaraTarget = document.getElementById("suara-target")
+                        suaraTarget.src = 'beep-long.mp3';
+                        suaraTarget.play();
+
+                        setTimeout(() => {
+                            alert('Selamat Anda telah mencapai target ' + currentTarget + ' dzikir!');
+                        },100);
+                        
+
+                    })
+                }
             }
         )
     </script>   
